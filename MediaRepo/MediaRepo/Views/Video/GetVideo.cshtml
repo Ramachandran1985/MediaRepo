@@ -1,0 +1,70 @@
+﻿@model MediaRepo.Models.ListOfLists
+@{
+    ViewBag.Title = "GetVideo";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: Courier-New;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td {
+            border: 3px solid;
+            text-align: left;
+            padding: 8px;
+            font-size: large;
+        }
+
+        th {
+            border: 3px solid;
+            text-align: center;
+            padding: 8px;
+            font-size: large;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("GetVideo", "Video"))
+    {
+        <h2></h2>
+        <tr>
+            <td>
+                <h4 align="center"> @Html.ActionLink("Search Again", "Search")</h4>
+            </td>
+        </tr>
+        <h2></h2>
+    }
+    <table>
+        @foreach (var ListofVideo in @Model.ListOfList)
+        {
+            <tr>
+                @foreach (var video in ListofVideo)
+                {
+                    var url = video.SourceUrl;
+                    <td><iframe src=@url allowfullscreen></iframe></td>
+                }                
+            </tr>
+        }
+    </table>
+
+    @*<table>
+            <th Col colspan="4">Videos</th>
+            @foreach (List<Video> videoObj in @Model)
+            {
+                //var url = videoObj.SourceUrl;
+                <tr>
+                    <td><iframe src=@url allowfullscreen></iframe>
+                </tr>
+            }
+        </table>*@
+</body>
+</html>

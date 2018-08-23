@@ -1,0 +1,13 @@
+﻿@model MediaRepo.Models.SearchMedia
+@{
+    ViewBag.Title = "SearchMovie";
+}
+<h2></h2>
+@using (Html.BeginForm("GetMovie", "Movie"))
+{
+    <tr>      
+        <td>@Html.TextBoxFor(m => m.SearchText)</td>
+        <td><input type="submit" value="Search Movie" height="25" class="btn-success" /></td>
+    </tr>
+}
+<h2></h2>

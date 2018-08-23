@@ -1,0 +1,76 @@
+﻿@model MediaRepo.Models.Movie
+@{
+    ViewBag.Title = "GetMovie";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: Courier-New;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td{
+            border: 3px solid;
+            text-align: left;
+            padding: 8px;
+            font-size: large;
+        }
+
+        th {
+            border: 3px solid;
+            text-align: center;
+            padding: 8px;
+            font-size: large;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+@using (Html.BeginForm("GetMovie", "Movie"))
+{ 
+    <h2></h2>
+    <tr>
+        <td>
+            <h4 align="center"> @Html.ActionLink("Search Again", "Search")</h4>
+        </td>
+    </tr>
+    <h2></h2>
+}
+        <table>
+        <tr>
+            <th>Movie Poster</th>
+            <th Col colspan="2">Parameters</th>
+        </tr>
+        <tr>
+            <td ><img src=@Model.Poster style="width: 100%; height: 100%;"/></td>
+            <td>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Title <br/>
+                Actors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Actors <br/>
+                Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Year <br/>
+                Rated&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Rated <br/>
+                Duration&nbsp;&nbsp;&nbsp;:@Model.Runtime <br/>
+                Genre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Genre <br/>
+                Director&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Director <br/>
+                Writer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Writer <br/>
+                Plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Plot <br/>
+                Language&nbsp;&nbsp;:@Model.Language <br/>
+                Country&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Country <br/>
+                Awards&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Awards <br/>
+                Rating&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.imdbRating <br/>
+                Votes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.imdbVotes <br/>
+                Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Type<br/>
+                DVD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.DVD <br/>
+                BoxOffice&nbsp;:@Model.BoxOffice <br/>
+                Production:@Model.Production <br/>
+                Website&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:@Model.Website <br/>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
